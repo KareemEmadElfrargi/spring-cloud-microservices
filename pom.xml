@@ -20,9 +20,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-        </dependencies>
-        <!-- Parent pom.xml -->
-        <dependencies>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
