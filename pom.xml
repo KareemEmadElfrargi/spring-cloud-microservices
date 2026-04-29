@@ -8,6 +8,7 @@
     <modules>
         <module>ProductService</module>
         <module>CouponService</module>
+        <module>EurekaServer</module>
     </modules>
 
     <dependencyManagement>
