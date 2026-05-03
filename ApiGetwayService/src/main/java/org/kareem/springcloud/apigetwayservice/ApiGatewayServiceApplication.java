@@ -2,12 +2,14 @@ package org.kareem.springcloud.apigetwayservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-public class ApiGetwayServiceApplication {
+@EnableDiscoveryClient
+public class ApiGatewayServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApiGetwayServiceApplication.class, args);
+        SpringApplication.run(ApiGatewayServiceApplication.class, args);
     }
 
 }
