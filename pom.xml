@@ -9,6 +9,7 @@
         <module>ProductService</module>
         <module>CouponService</module>
         <module>EurekaServer</module>
+        <module>ApiGetwayService</module>
     </modules>
 
     <dependencyManagement>
