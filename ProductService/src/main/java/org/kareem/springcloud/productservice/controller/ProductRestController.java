@@ -18,15 +18,19 @@ public class ProductRestController {
     private final CouponClient couponClient;
 
     @PostMapping()
-    @Retry(name = "product_api")
+    @Retry(name = "product-api",fallbackMethod = "fallbackAfterRetry")
     public Product create(@RequestBody Product product) {
         Coupon coupon = couponClient.getCoupon(product.getCouponCode());
         product.setPrice(product.getPrice().subtract(coupon.getDiscount()));
         return productRepository.save(product);
     }
     @GetMapping()
-    public Product getProductById(int id) {
+    public Product getProductById(@RequestParam int id) {
         return productRepository.findById(id).get();
+    }
+    public Product fallbackAfterRetry(Product product, Throwable throwable) {
+        System.out.println("Fallback called: " + throwable.getMessage());
+        return new Product();
     }
 
 }
