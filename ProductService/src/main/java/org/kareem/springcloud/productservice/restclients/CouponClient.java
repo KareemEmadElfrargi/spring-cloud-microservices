@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient("gateway-service")
 public interface CouponClient {
-
-    @GetMapping("/couponapi/{code}")
+    // make error here by removing 'i' form API
+    @GetMapping("/couponap/{code}")
     public Coupon getCoupon(@PathVariable String code);
 }
+

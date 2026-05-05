@@ -1,5 +1,6 @@
 package org.kareem.springcloud.productservice.controller;
 
+import io.github.resilience4j.retry.annotation.Retry;
 import lombok.RequiredArgsConstructor;
 import org.kareem.springcloud.productservice.model.Coupon;
 import org.kareem.springcloud.productservice.model.Product;
@@ -17,6 +18,7 @@ public class ProductRestController {
     private final CouponClient couponClient;
 
     @PostMapping()
+    @Retry(name = "product_api")
     public Product create(@RequestBody Product product) {
         Coupon coupon = couponClient.getCoupon(product.getCouponCode());
         product.setPrice(product.getPrice().subtract(coupon.getDiscount()));
